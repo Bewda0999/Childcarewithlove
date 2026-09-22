@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible, on-brand focus ring for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #B4913C;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Reveal-on-scroll utility, driven by IntersectionObserver in useReveal.js */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Editorial pull-line under section eyebrows */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(180, 145, 60, 0.55), rgba(180, 145, 60, 0));
+}
+
+::selection {
+  background: #F5D6E0;
+  color: #1B2A4A;
+}
